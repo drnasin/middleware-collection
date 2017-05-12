@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: RequestTokenValidation.php                                              *
- * Last Modified: 12.5.2017 23:21                                                *
+ * Last Modified: 12.5.2017 23:26                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -45,6 +45,9 @@ use Slim\Http\Request;
 
 /**
  * Class ValidateToken
+ *
+ * Token based validation middleware.
+ *
  * @package   App\Middleware
  * @author    Ante Drnasin
  */
@@ -85,6 +88,10 @@ class RequestTokenValidation
 
             $token = $matches[1];
 
+            /**
+             * If by any chance Access Token is already in session
+             * let's cut this process shorter and just compare the values before we go to full validation.
+             */
             if (isset($_SESSION['access_token'])) {
                 if ($token === $_SESSION['access_token']) {
                     return $next($request, $response);
@@ -126,6 +133,7 @@ class RequestTokenValidation
                 throw new AuthenticationException('no user with such credentials');
             }
 
+            /** @var AccessToken $accessToken */
             $accessToken = $user->getAccessToken();
 
             if (!$accessToken) {
@@ -142,8 +150,8 @@ class RequestTokenValidation
 
             //and finally!
             $_SESSION['access_token'] = $accessToken->getToken();
-
             return $next($request, $response);
+
         } catch (HttpHeaderException | RequestParameterInvalidException | RequestParameterMissingException | AuthenticationException $e) {
             return $response->withAddedHeader('X-Status-Reason', $e->getMessage())->withStatus($e->getCode());
         }
