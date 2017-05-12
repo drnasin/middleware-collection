@@ -11,4 +11,4 @@ If you need any help I'll be glad to do so. Just use the "Issues" tab...
 ### Requirements
 php > 7.1
 
-for php < 7.1 - restructure the "catch" block to be compatible with php < 7 and you're good to go
+Some classes in the repository use 3rd party objects (like Doctrine or Slim Framework),
