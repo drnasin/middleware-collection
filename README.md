@@ -3,6 +3,9 @@
 
 ### About
 Personal collection of PSR-7 middleware classes from various projects.
+Also included are Exceptions they use.
+
+If you need any help I'll be glad to do so. Just use the "Issues" tab...
 
 
 ### Requirements
