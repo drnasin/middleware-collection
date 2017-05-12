@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: Validator.php                                                           *
- * Last Modified: 12.5.2017 22:39                                                *
+ * Last Modified: 12.5.2017 22:53                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -31,7 +31,7 @@
  * THE SOFTWARE.                                                                 *
  *********************************************************************************/
 
-namespace Lisica;
+namespace App;
 
 use Doctrine\Common\Inflector\Inflector;
 use Doctrine\DBAL\Connection;
@@ -41,9 +41,9 @@ use Slim\Container;
 
 /**
  * Class Validator
- * @package   Lisica
- * @author    Ante Drnasin <ante@drnasin.com>
- * @copyright Oblikovanje.com
+ * @package App
+ * @author  Ante Drnasin
+ * @link    https://www.drnasin.com
  */
 class Validator
 {
@@ -52,7 +52,7 @@ class Validator
      */
     const UUID_REGEX_PATTERN = "/" . Uuid::VALID_PATTERN . "/";
     /**
-     *
+     * @var string regex
      */
     const BCRYPT_PASSWORD_REGEX_PATTERN = '^\$2[ayb]\$.{56}^';
     /**
@@ -75,6 +75,8 @@ class Validator
     }
 
     /**
+     * Cheks if tha name of the parameter (not value) valid
+     *
      * @param $param
      *
      * @return bool
@@ -85,7 +87,26 @@ class Validator
     }
 
     /**
-     * Returns the list of all API (database) fields
+    * @param $resource
+    *
+    * @return bool
+    */
+    public function isValidResource($resource) : bool
+    {
+        return in_array($resource, $this->getTableNames());
+    }
+
+    /*********************************************************
+     *              PROTECTED METHODS
+     *********************************************************/
+
+    /**
+     * Same as getAllDatabaseFields but with filter
+     *
+     * @param array $filters Fileds that should NOT be in the returned array (ie. id's, passwords)
+     *
+     * @see getAllDatabaseFields()
+     * @return array
      */
     protected function getApiFields(array $filters = []) : array
     {
@@ -100,8 +121,8 @@ class Validator
     }
 
     /**
+     * Returns "distinct" list of all the table fields in the database.
      * @return array
-     * @throws \Interop\Container\Exception\ContainerException
      */
     protected function getAllDatabaseFields() : array
     {
@@ -122,9 +143,66 @@ class Validator
     }
 
     /**
-     * @param mixed  $value
-     * @param string $useValidatorFor
-     * @param bool   $exceptionMode
+     * @param bool $includePrefix
+     *
+     * @return array
+     */
+    protected function getTableNames(bool $includePrefix = false) : array
+    {
+        $tables = [
+            'access_tokens',
+            'animal_categories',
+            'animals',
+            'cool_room_entries',
+            'cool_rooms',
+            'districts',
+            'events',
+            'feeding_area_types',
+            'feeding_areas',
+            'galleries',
+            'hunting_grounds',
+            'images',
+            'lookout_conditions',
+            'lookout_reservations',
+            'lookouts',
+            'shots',
+            'sightings',
+            'users',
+        ];
+
+        /**
+         * our table names don't change so no need for a call to database to check the names!
+         * @todo add new table here
+         */
+
+        /** @var  \Doctrine\DBAL\Schema\MySqlSchemaManager $sm */
+        /*$sm = $this->container['doctrine-schema-manager'];
+
+        foreach($sm->listTables() as $table) {
+            $tableName = ($includePrefix) ? $table->getName() : str_replace($prefix, "", $table->getName());
+            $tables[] = $tableName;
+        }*/
+
+        if ($includePrefix) {
+            $return = [];
+            $prefix = $this->container->get('settings')['db']['prefix'];
+
+            foreach ($tables as $tableName) {
+                $return[] = sprintf('%s%s', $prefix, $tableName);
+            }
+
+            $tables = $return;
+        }
+
+        return $tables;
+    }
+
+    /**
+     * Validates the given parameter
+     *
+     * @param mixed  $value Value to validate
+     * @param string $useValidatorFor which validator to use?
+     * @param bool   $exceptionMode Throw exceptions or return bool
      *
      * @return bool
      */
@@ -214,70 +292,5 @@ class Validator
         }
 
         return $validators;
-    }
-
-    /**
-     * @param $resource
-     *
-     * @return bool
-     */
-    public function isValidResource($resource) : bool
-    {
-        return in_array($resource, $this->getTableNames());
-    }
-
-    /**
-     * @param bool $includePrefix
-     *
-     * @return array
-     */
-    protected function getTableNames(bool $includePrefix = false) : array
-    {
-        $tables = [
-            'access_tokens',
-            'animal_categories',
-            'animals',
-            'cool_room_entries',
-            'cool_rooms',
-            'districts',
-            'events',
-            'feeding_area_types',
-            'feeding_areas',
-            'galleries',
-            'hunting_grounds',
-            'images',
-            'lookout_conditions',
-            'lookout_reservations',
-            'lookouts',
-            'shots',
-            'sightings',
-            'users',
-        ];
-
-        /**
-         * our table names don't change so no need for a call to database to check the names!
-         * @todo add new table here
-         */
-
-        /** @var  \Doctrine\DBAL\Schema\MySqlSchemaManager $sm */
-        /*$sm = $this->container['doctrine-schema-manager'];
-
-        foreach($sm->listTables() as $table) {
-            $tableName = ($includePrefix) ? $table->getName() : str_replace($prefix, "", $table->getName());
-            $tables[] = $tableName;
-        }*/
-
-        if ($includePrefix) {
-            $return = [];
-            $prefix = $this->container->get('settings')['db']['prefix'];
-
-            foreach ($tables as $tableName) {
-                $return[] = sprintf('%s%s', $prefix, $tableName);
-            }
-
-            $tables = $return;
-        }
-
-        return $tables;
     }
 }
