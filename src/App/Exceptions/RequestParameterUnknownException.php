@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: RequestParameterUnknownException.php                                    *
- * Last Modified: 12.5.2017 23:06                                                *
+ * Last Modified: 12.5.2017 23:37                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -38,6 +38,9 @@ use Throwable;
 
 /**
  * Class RequestParameterUnknownException
+ *
+ * Exception carries Http Status code 400
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
  */

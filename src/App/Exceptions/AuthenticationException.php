@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: AuthenticationException.php                                             *
- * Last Modified: 12.5.2017 23:06                                                *
+ * Last Modified: 12.5.2017 23:36                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -43,7 +43,6 @@ use Exception;
  *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @license MIT
  */
 class AuthenticationException extends \Exception
 {
