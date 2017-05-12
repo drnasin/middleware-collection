@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: RequestTokenValidation.php                                              *
- * Last Modified: 12.5.2017 23:26                                                *
+ * Last Modified: 12.5.2017 23:27                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -44,7 +44,7 @@ use Slim\Container;
 use Slim\Http\Request;
 
 /**
- * Class ValidateToken
+ * Class RequestTokenValidation
  *
  * Token based validation middleware.
  *
