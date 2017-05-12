@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: RequestTokenValidation.php                                              *
- * Last Modified: 12.5.2017 23:06                                                *
+ * Last Modified: 12.5.2017 23:21                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -47,7 +47,6 @@ use Slim\Http\Request;
  * Class ValidateToken
  * @package   App\Middleware
  * @author    Ante Drnasin
-
  */
 class RequestTokenValidation
 {
@@ -145,7 +144,7 @@ class RequestTokenValidation
             $_SESSION['access_token'] = $accessToken->getToken();
 
             return $next($request, $response);
-        } /** php 7.1 */ catch (HttpHeaderException | RequestParameterInvalidException | RequestParameterMissingException | AuthenticationException $e) {
+        } catch (HttpHeaderException | RequestParameterInvalidException | RequestParameterMissingException | AuthenticationException $e) {
             return $response->withAddedHeader('X-Status-Reason', $e->getMessage())->withStatus($e->getCode());
         }
     }
