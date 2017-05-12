@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: Validator.php                                                           *
- * Last Modified: 12.5.2017 23:06                                                *
+ * Last Modified: 12.5.2017 23:12                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -111,8 +111,7 @@ class Validator
 
         if (!isset($validators[$useValidatorFor])) {
             $this->container->get('logger')
-                            ->error('RuntimeException - requested validator for request field is unknown',
-                                [$useValidatorFor]);
+                            ->error('RuntimeException - requested validator for request field is unknown', [$useValidatorFor]);
             throw new \RuntimeException(sprintf("requested validator for '%s' doesn't exist. logging error",
                 $useValidatorFor));
         }
