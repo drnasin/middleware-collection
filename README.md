@@ -2,7 +2,7 @@
 
 
 ### About
-Personal collection of PSR-7 middleware classes from various projects.
+Personal collection of PSR-7 middleware classes from various REST API projects I've worked on.
 Also included are Exceptions they use.
 
 If you need any help I'll be glad to do so. Just use the "Issues" tab...
