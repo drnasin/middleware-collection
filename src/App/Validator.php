@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: Validator.php                                                           *
- * Last Modified: 12.5.2017 22:53                                                *
+ * Last Modified: 12.5.2017 23:04                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -41,9 +41,9 @@ use Slim\Container;
 
 /**
  * Class Validator
+ *
  * @package App
  * @author  Ante Drnasin
- * @link    https://www.drnasin.com
  */
 class Validator
 {
@@ -94,6 +94,37 @@ class Validator
     public function isValidResource($resource) : bool
     {
         return in_array($resource, $this->getTableNames());
+    }
+
+    /**
+     * Validates the given parameter
+     *
+     * @param mixed  $value Value to validate
+     * @param string $useValidatorFor which validator to use?
+     * @param bool   $exceptionMode Throw exceptions or return bool
+     *
+     * @return bool
+     */
+    public function validateParam($value, string $useValidatorFor, bool $exceptionMode = true) : bool
+    {
+        $validators = $this->getValidators();
+
+        if (!isset($validators[$useValidatorFor])) {
+            $this->container->get('logger')
+                            ->error('RuntimeException - requested validator for request field is unknown',
+                                [$useValidatorFor]);
+            throw new \RuntimeException(sprintf("requested validator for '%s' doesn't exist. logging error",
+                $useValidatorFor));
+        }
+
+        /** @var \Respect\Validation\Validator $validator */
+        $validator = $validators[$useValidatorFor];
+
+        if ($exceptionMode) {
+            return $validator->check($value);
+        }
+
+        return $validator->validate($value);
     }
 
     /*********************************************************
@@ -197,36 +228,7 @@ class Validator
         return $tables;
     }
 
-    /**
-     * Validates the given parameter
-     *
-     * @param mixed  $value Value to validate
-     * @param string $useValidatorFor which validator to use?
-     * @param bool   $exceptionMode Throw exceptions or return bool
-     *
-     * @return bool
-     */
-    public function validateParam($value, string $useValidatorFor, bool $exceptionMode = true) : bool
-    {
-        $validators = $this->getValidators();
 
-        if (!isset($validators[$useValidatorFor])) {
-            $this->container->get('logger')
-                            ->error('RuntimeException - requested validator for request field is unknown',
-                                [$useValidatorFor]);
-            throw new \RuntimeException(sprintf("requested validator for '%s' doesn't exist. logging error",
-                $useValidatorFor));
-        }
-
-        /** @var \Respect\Validation\Validator $validator */
-        $validator = $validators[$useValidatorFor];
-
-        if ($exceptionMode) {
-            return $validator->check($value);
-        }
-
-        return $validator->validate($value);
-    }
 
     /**
      * @param array $filters
