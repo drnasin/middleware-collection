@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestParameterMissingException.php                                    *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:01                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -38,9 +38,11 @@ use Exception;
 
 /**
  * Class RequestParameterMissingException
+ *
+ * Exception uses Http Status code 400
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  */
 class RequestParameterMissingException extends \Exception
 {
@@ -51,7 +53,7 @@ class RequestParameterMissingException extends \Exception
      * @param int            $code
      * @param Exception|null $previous
      */
-    public function __construct($message = "", $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, Exception $previous = null)
     {
         $message = sprintf("required parameter '%s' not found in the request", $message);
         parent::__construct($message, HttpStatusCodes::STATUS_BAD_REQUEST, $previous);

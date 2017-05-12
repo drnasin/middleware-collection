@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: HttpStatusCodes.php                                                     *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:03                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -35,9 +35,14 @@ namespace App\Utils;
 
 /**
  * Class HttpStatusCodes
+ *
+ * Class with HttpStatus codes relevant to my projects.
+ * If you need all the codes you can find them in Slim Framework Response class,
+ * but this is more than enough for a REST API.
+ *
  * @package   App\Utils
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
+
  */
 class HttpStatusCodes
 {

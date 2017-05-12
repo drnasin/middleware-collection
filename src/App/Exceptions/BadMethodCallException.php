@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: BadMethodCallException.php                                              *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 22:58                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -35,9 +35,9 @@ namespace App\Exceptions;
 
 /**
  * Class BadMethodCallException
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  */
 class BadMethodCallException extends \Exception
 {

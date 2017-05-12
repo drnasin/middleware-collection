@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestTokenValidation.php                                              *
- * Last Modified: 12.5.2017 22:15                                                *
+ * Last Modified: 12.5.2017 23:03                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -47,7 +47,7 @@ use Slim\Http\Request;
  * Class ValidateToken
  * @package   App\Middleware
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
+
  */
 class RequestTokenValidation
 {

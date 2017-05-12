@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestCredentialsMissingException.php                                  *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:02                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -38,9 +38,11 @@ use Exception;
 
 /**
  * Class RequestCredentialsMissingException
+ *
+ * Exception uses Http Status code 400
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  */
 class RequestCredentialsMissingException extends \Exception
 {

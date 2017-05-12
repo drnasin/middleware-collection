@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestParameterUnknownException.php                                    *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:01                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -40,7 +40,6 @@ use Throwable;
  * Class RequestParameterUnknownException
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  */
 class RequestParameterUnknownException extends \Exception
 {

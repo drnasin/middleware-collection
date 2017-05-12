@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestDataValidation.php                                               *
- * Last Modified: 12.5.2017 22:31                                                *
+ * Last Modified: 12.5.2017 23:03                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -45,9 +45,10 @@ use Slim\Http\Request;
 
 /**
  * Class RequestDataValidation
+ *
  * @package   App\Middleware
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
+
  */
 class RequestDataValidation
 {

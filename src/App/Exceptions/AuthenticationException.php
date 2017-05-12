@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: AuthenticationException.php                                             *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:01                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -37,10 +37,12 @@ use App\Utils\HttpStatusCodes;
 use Exception;
 
 /**
- * Class Authentication
+ * AuthenticationException
+ *
+ * Exception uses Http Status code 401
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  * @license MIT
  */
 class AuthenticationException extends \Exception

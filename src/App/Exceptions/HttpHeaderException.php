@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: HttpHeaderException.php                                                 *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:00                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -38,9 +38,11 @@ use Exception;
 
 /**
  * Class HttpHeaderException
+ *
+ * Exception uses Http Status code 400
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  */
 class HttpHeaderException extends \Exception
 {

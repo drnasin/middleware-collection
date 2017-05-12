@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestParameterInvalidException.php                                    *
- * Last Modified: 12.5.2017 22:13                                                *
+ * Last Modified: 12.5.2017 23:02                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -37,9 +37,11 @@ use App\Utils\HttpStatusCodes;
 
 /**
  * Class RequestParameterInvalidException
+ *
+ * Exception uses Http Status code 400
+ *
  * @package   App\Exceptions
  * @author    Ante Drnasin
- * @copyright Ante Drnasin
  */
 class RequestParameterInvalidException extends \Exception
 {
@@ -50,7 +52,7 @@ class RequestParameterInvalidException extends \Exception
      * @param int             $code
      * @param \Exception|null $previous
      */
-    public function __construct($message = "", $code = 0, \Exception $previous = null)
+    public function __construct($message = '', $code = 0, \Exception $previous = null)
     {
         $message = sprintf("request parameter '%s' invalid", $message);
         parent::__construct($message, HttpStatusCodes::STATUS_BAD_REQUEST, $previous);
