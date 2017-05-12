@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin                                               *
  *                                                                               *
  * File: RequestDataValidation.php                                               *
- * Last Modified: 12.5.2017 22:14                                                *
+ * Last Modified: 12.5.2017 22:31                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -72,7 +72,6 @@ class RequestDataValidation
      * @param callable $next
      *
      * @return Response|\Slim\Http\Response
-     * @throws RequestParameterUnknownException
      */
     public function __invoke(Request $request, Response $response, callable $next) : Response
     {
