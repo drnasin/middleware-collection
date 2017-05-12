@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: HttpStatusCodes.php                                                     *
- * Last Modified: 12.5.2017 23:06                                                *
+ * Last Modified: 12.5.2017 23:40                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -35,14 +35,11 @@ namespace App\Utils;
 
 /**
  * Class HttpStatusCodes
- *
  * Class with HttpStatus codes relevant to my projects.
  * If you need all the codes you can find them in Slim Framework Response class,
  * but this is more than enough for a REST API.
- *
  * @package   App\Utils
  * @author    Ante Drnasin
-
  */
 class HttpStatusCodes
 {
