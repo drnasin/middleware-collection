@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: RequestDataValidation.php                                               *
- * Last Modified: 12.5.2017 23:14                                                *
+ * Last Modified: 12.5.2017 23:16                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -45,6 +45,7 @@ use Slim\Http\Request;
 
 /**
  * Class RequestDataValidation
+ *
  * @package   App\Middleware
  * @author    Ante Drnasin
  */
