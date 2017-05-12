@@ -3,14 +3,13 @@
  * Created by Ante Drnasin - http://www.drnasin.com                              *
  * Copyright (c) 2017. All rights reserved.                                      *
  *                                                                               *
- * Project: Middleware Collection                                                *
- * Url: https://github.com/drnasin/middleware-collection                         *
+ * Project Name: Middleware Collection                                           *
+ * Repository: https://github.com/drnasin/middleware-collection                  *
  *                                                                               *
  * File: RequestTokenValidation.php                                              *
- * Last Modified: 12.5.2017 23:27                                                *
+ * Last Modified: 12.5.2017 23:43                                                *
  *                                                                               *
- * Redistribution and use in source and binary forms, with or without            *
- * The MIT License (MIT)                                                         *
+ * The MIT License                                                               *
  *                                                                               *
  * Permission is hereby granted, free of charge, to any person obtaining a copy  *
  * of this software and associated documentation files (the "Software"), to deal *
