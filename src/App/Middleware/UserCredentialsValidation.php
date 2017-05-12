@@ -7,7 +7,7 @@
  * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: UserCredentialsValidation.php                                           *
- * Last Modified: 12.5.2017 23:06                                                *
+ * Last Modified: 12.5.2017 23:28                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
@@ -48,7 +48,6 @@ use Slim\Http\Request;
  * Class UserCredentialsValidation
  * @package   App\Middleware
  * @author    Ante Drnasin
-
  */
 class UserCredentialsValidation
 {

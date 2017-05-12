@@ -45,9 +45,7 @@ use Slim\Http\Request;
 
 /**
  * Class RequestTokenValidation
- *
  * Token based validation middleware.
- *
  * @package   App\Middleware
  * @author    Ante Drnasin
  */
@@ -150,8 +148,8 @@ class RequestTokenValidation
 
             //and finally!
             $_SESSION['access_token'] = $accessToken->getToken();
-            return $next($request, $response);
 
+            return $next($request, $response);
         } catch (HttpHeaderException | RequestParameterInvalidException | RequestParameterMissingException | AuthenticationException $e) {
             return $response->withAddedHeader('X-Status-Reason', $e->getMessage())->withStatus($e->getCode());
         }
