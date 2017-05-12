@@ -4,10 +4,10 @@
  * Copyright (c) 2017. All rights reserved.                                      *
  *                                                                               *
  * Project: Middleware Collection                                                *
- * Url: https://github.com/drnasin                                               *
+ * Url: https://github.com/drnasin/middleware-collection                         *
  *                                                                               *
  * File: HttpStatusCodes.php                                                     *
- * Last Modified: 12.5.2017 23:03                                                *
+ * Last Modified: 12.5.2017 23:06                                                *
  *                                                                               *
  * Redistribution and use in source and binary forms, with or without            *
  * The MIT License (MIT)                                                         *
