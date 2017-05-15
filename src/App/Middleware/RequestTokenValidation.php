@@ -7,7 +7,7 @@
  * Repository: https://github.com/drnasin/middleware-collection                  *
  *                                                                               *
  * File: RequestTokenValidation.php                                              *
- * Last Modified: 12.5.2017 23:45                                                *
+ * Last Modified: 15.5.2017 16:59                                                *
  *                                                                               *
  * The MIT License                                                               *
  *                                                                               *
@@ -71,6 +71,9 @@ class RequestTokenValidation
      * @param callable $next
      *
      * @return Response
+     * @throws AuthenticationException
+     * @throws RequestParameterInvalidException
+     * @throws RequestParameterMissingException
      */
     public function __invoke(Request $request, Response $response, callable $next) : Response
     {
@@ -86,8 +89,10 @@ class RequestTokenValidation
             $token = $matches[1];
 
             /**
-             * If by any chance Access Token is already in session let's cut this process shor and just compare
+             * If by any chance Access Token is already in session
+             * let's cut this process short and just compare
              * the values before we go to full validation.
+             * If they match we're good to go.
              */
             if (isset($_SESSION['access_token'])) {
                 if ($token === $_SESSION['access_token']) {
