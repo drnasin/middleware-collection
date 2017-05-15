@@ -7,7 +7,7 @@
  * Repository: https://github.com/drnasin/middleware-collection                  *
  *                                                                               *
  * File: UserCredentialsValidation.php                                           *
- * Last Modified: 12.5.2017 23:43                                                *
+ * Last Modified: 15.5.2017 17:14                                                *
  *                                                                               *
  * The MIT License                                                               *
  *                                                                               *
@@ -68,11 +68,14 @@ class UserCredentialsValidation
     /**
      * @param Request  $request
      * @param Response $response
-     * @param          $next
+     * @param callable $next
      *
      * @return Response
+     * @throws AuthenticationException
+     * @throws RequestParameterInvalidException
+     * @throws RequestParameterMissingException
      */
-    public function __invoke(Request $request, Response $response, $next) : Response
+    public function __invoke(Request $request, Response $response, callable $next) : Response
     {
         try {
             $username = $request->getParam('username');
